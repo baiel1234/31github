@@ -1,4 +1,7 @@
 from django.http import HttpResponse
+from django.template import loader
+
+from .models import World
 
 
 def index(request):
@@ -14,3 +17,16 @@ def results(request, world_id):
 
 def vote(request, world_id):
     return HttpResponse("You're voting on world %s." % world_id)
+
+def index(request):
+    latest_World_list = World.objects.order_by("-pub_date")[:5]
+    output = ", ".join([q.World_text for q in latest_World_list])
+    return HttpResponse(output)
+
+def index(request):
+    latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    template = loader.get_template("world/index.html")
+    context = {
+        "latest_question_list": latest_question_list,
+    }
+    return HttpResponse(template.render(context, request))
