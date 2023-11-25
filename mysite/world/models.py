@@ -1,4 +1,7 @@
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 
 class World(models.Model):
@@ -6,6 +9,8 @@ class World(models.Model):
     pub_date = models.DateTimeField("date published")
     def __str__(self):
         return self.world_text
+    def was_published_recently(self):
+        return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
 
 class Race(models.Model):
