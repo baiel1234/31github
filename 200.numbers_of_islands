@@ -17,3 +17,5 @@ class Solution:
                     counter += 1
                     islandConverter(i, j)
         return counter
+
+exercise from leetcode
