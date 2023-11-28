@@ -1,7 +1,7 @@
-{% if latest_question_list %}
+{% if latest_world_list %}
     <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/world/{{ question.id }}/">{{ question.question_text }}</a></li>
+    {% for world in latest_world_list %}
+        <li><a href="/world/{{ world.id }}/">{{ world.world_text }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
