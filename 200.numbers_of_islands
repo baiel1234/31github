@@ -18,4 +18,4 @@ class Solution:
                     islandConverter(i, j)
         return counter
 
-exercise from leetcode
+exercise from leetcode number 200
