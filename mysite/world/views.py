@@ -23,10 +23,3 @@ def index(request):
     output = ", ".join([q.World_text for q in latest_World_list])
     return HttpResponse(output)
 
-def index(request):
-    latest_world_list = world.objects.order_by("-pub_date")[:5]
-    template = loader.get_template("world/index.html")
-    context = {
-        "latest_world_list": latest_world_list,
-    }
-    return HttpResponse(template.render(context, request))
