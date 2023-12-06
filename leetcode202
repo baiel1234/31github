@@ -1,0 +1,12 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        s = set
+        y = 0
+        x = "19"
+        while x != "19"
+            for char in x:
+                numOne = int(char)*int(char)
+                y = y+numOne
+        s.add(x)
+        x = str(y)
+        y = 0        
