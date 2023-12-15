@@ -1,0 +1,8 @@
+class Solution:
+    def addDigits(self, num: int) -> int:
+        while num > 9:
+            y = 0
+            for i in str(num):
+                y = int(i) + y
+            num = y
+        return num
