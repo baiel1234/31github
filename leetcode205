@@ -1,0 +1,18 @@
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        d1 = {}
+        d2 = {}
+        pointer = 0
+        while pointer != len(s):
+            if s[pointer] in d1:
+                if d1[s[pointer]] != t[pointer]:
+                    return False
+            if t[pointer] in d2:
+                if d2[t[pointer]] != s[pointer]:
+                    return False
+            d1[s[pointer]] = t[pointer]
+            d2[t[pointer]] = s[pointer]
+            pointer = pointer +1
+        return True
