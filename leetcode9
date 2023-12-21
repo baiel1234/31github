@@ -1,0 +1,9 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        normallist=list(str(x))
+        reverse=list(str(x))
+        reverse.reverse()
+        if reverse == normallist:
+            return True
+        else:
+            return False
