@@ -1,0 +1,12 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        striped = s.strip()
+        revers_s = striped[::-1]
+        lastword = 0
+        for i in revers_s:
+            if i == " ":
+                return lastword
+                break
+            lastword += 1
+        if lastword > 0:
+            return lastword
