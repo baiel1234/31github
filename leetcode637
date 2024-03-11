@@ -1,14 +1,29 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
 class Solution:
-    def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
-        q = deque()
-        q.append(cloned)
-        while q:
-            node = q.popleft()
-            if node == None:
-                continue
-            if node.val == target.val:
-                return node
-            if node.left:
-                q.append(node.left)
-            if node.right:
-                q.append(node.right)
+    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+        q1 = deque()
+        q2 = deque()
+        ans = []
+        q1.append(root)
+        while True:
+            quantity = 0
+            counter = 0
+            while q1:
+                node = q1.popleft()
+                quantity += 1
+                counter += node.val
+                if node.right:
+                    q2.append(node.right)
+                if node.left:
+                    q2.append(node.left)
+            if quantity == 0:
+                break
+            ans.append(counter/quantity)
+            q1 =q2
+            q2 = deque()
+        return ans
